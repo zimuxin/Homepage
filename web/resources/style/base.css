@@ -1,0 +1,26 @@
+*{
+    margin: 0px;
+}
+
+body{
+    background: url("/resources/image/bg11.jpg");
+    background-image: url("/resources/image/bg11.jpg");
+    width: 900px;
+    margin: 0 auto;
+    font-family: Arial,Helvetica;
+    font-size: small;
+    background-attachment: fixed;
+    overflow: auto;
+
+}
+
+div{
+    border: 0px solid #aaa;
+    padding: 3px;
+    margin: 10px;
+
+
+    /****/
+
+}
+
