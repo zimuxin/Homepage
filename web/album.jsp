@@ -7,6 +7,7 @@
 <%@ page import="org.lsx.entity.Album" %>
 <%@ page import="org.lsx.entity.Article" %>
 <%@ page import="org.lsx.entity.Message" %>
+<%@ page import="org.lsx.entity.Photo" %>
 <%@ page import="java.util.List" %>
 <html>
 <head>
@@ -15,10 +16,11 @@
 <!--导入的外部样式表-->
 <link type="text/css" rel="stylesheet" href="resources/style/base.css"/>
 <link type="text/css" rel="stylesheet" href="resources/style/index.css"/>
+<link type="text/css" rel="stylesheet" href="resources/style/album.css"/>
 <!--导入的JavaScript脚本-->
 <script src="resources/script/base.js"></script>
 
-<body onload="switchDisplay('nav-daily')">
+<body onload="switchDisplay('nav-photo')">
 <a name="top"/>
 <!--头部开始-->
 <header>
@@ -118,28 +120,29 @@
 
 
     <!--图片-->
+                                   <%
 
-    <div id="photo_">我的相册 <br>
+                                   String id=request.getParameter("id");
+                                      AlbumDao albumDao=new AlbumDao();
+                                      Album album= albumDao.get(new Long(id));
+                                   %>
+    <div id="photo_">我的相册 >> <%=album.getName()%><span><a href="">添加图片</a></span> <br>
+
+
           <%
-              AlbumDao albumDao=new AlbumDao();
-              List<Album> albumList=albumDao.list();
-              int len=albumList.size();
-              for (int i = 0; i <len; i++) {
-                  Album a=    albumList.get(i);
-            %>
-        <div class="photo-album">
-            <dl>
-            <dd><img onclick="window.location.href='album.jsp?id=<%=a.getId()%>'" src="resources/image/photo/<%=a.getCoverPath()%>"></dd>
-            </dl>
-            <dt style="text-align: center;"><%=a.getName()%></dt>
+
+              for(Photo photo:album.getPhotoList()){
+          %>
+        <div class="photo-item">
+           <img src="resources/image/photo/<%=photo.getFilename()%>">
+               <br>
+           <%=photo.getDescribe()%>
 
         </div>
-         <%
-             }
 
-         %>
-
-
+        <%
+            }
+        %>
 
 
     </div>

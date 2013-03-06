@@ -1,0 +1,10 @@
+.photo-item {
+    min-height: 550px;
+ border: 1px dotted #ccc;
+
+}.photo-item img{
+   width: 200px;
+    height: 180px;
+    text-align: center;
+
+}
