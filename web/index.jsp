@@ -62,7 +62,7 @@
     <div id="message_">
 
 
-        <strong style="font-size:1.5em;margin-right: 600px;">最新留言：</strong> <div class="postMessage"> <a href="#postMessage" >发表留言</a></div><br/>
+        <strong style="font-size:1.5em;margin-right: 600px;">最新留言4：</strong> <div class="postMessage"> <a href="#postMessage" >发表留言</a></div><br/>
         <hr  size=1 color="#ccc" style="width:100%;text-align:left;margin-top: 1px;margin-bottom: 10px;">
         <!--已有的留言--->
 

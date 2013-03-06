@@ -27,7 +27,7 @@ public class MessageDao {
         conn = DbUtils.getConnection();
         List<Message> list = new ArrayList<Message>();
         try {
-            ps = conn.prepareStatement("SELECT id,sender,email,content,date FROM tb_message order by id desc");
+            ps = conn.prepareStatement("SELECT id,sender,email,content,(date) FROM tb_message order by id desc");
             rs = ps.executeQuery();
             while (rs.next()) {
                 Message msg = new Message(rs.getLong("id"), rs.getString("sender"), rs.getString("email"), rs.getString("content"),rs.getString("date"));
@@ -36,13 +36,9 @@ public class MessageDao {
         } catch (SQLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } finally {
-            try {
-                rs.close();
-                ps.close();
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-            }
+
+               DbUtils.closeAll(rs,ps,conn);
+
 
         }
         return list;
