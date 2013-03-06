@@ -38,6 +38,16 @@ nav li a:hover{
     color: #2f4f4f;
     overflow: hidden;
 }
+
+
+/***当前选中的标签反色**/
+.currentPage{
+    line-height: 2.1em;
+    border-top: 1px solid #000;
+    background: #faebd7;
+    color: #2f4f4f;
+    overflow: hidden;
+}
    /**主内容div的阴影效果**/
 .contentBody{
 

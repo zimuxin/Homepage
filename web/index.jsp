@@ -23,7 +23,7 @@
 <!--头部开始-->
 <header>
     <nav>
-        <ul>
+        <ul id="navbar">
             <li><a id="nav-daily" onclick="switchDisplay(this.id)">日志</a></li>
             <li><a id="nav-message" onclick="switchDisplay(this.id)">留言</a></li>
             <li><a id="nav-photo" onclick="switchDisplay(this.id)">图片</a></li>
