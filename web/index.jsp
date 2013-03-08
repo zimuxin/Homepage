@@ -4,10 +4,11 @@
 <%@ page import="org.lsx.dao.AlbumDao" %>
 <%@ page import="org.lsx.dao.ArticleDao" %>
 <%@ page import="org.lsx.dao.MessageDao" %>
-<%@ page import="org.lsx.entity.Album" %>
-<%@ page import="org.lsx.entity.Article" %>
-<%@ page import="org.lsx.entity.Message" %>
+<%@ page import="org.lsx.dao.SiteSortDao" %>
+<%@ page import="org.lsx.entity.*" %>
 <%@ page import="java.util.List" %>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>个人主页</title>
@@ -48,7 +49,11 @@
     <div id="daily_">
          <%
              ArticleDao ad=  new ArticleDao();
-             List<Article> list=ad.list();
+
+             List<Article> list=null;
+
+            list= ad.list();
+
               for (Article a:list){
          %>
             <h2> <%=a.getTitle()%></h2>
@@ -131,7 +136,7 @@
             <dl>
             <dd><img onclick="window.location.href='album.jsp?id=<%=a.getId()%>'" src="resources/image/photo/<%=a.getCoverPath()%>"></dd>
             </dl>
-            <dt style="text-align: center;"><%=a.getName()%></dt>
+            <dt style="margin:auto;text-align: center;"><%=a.getName()%></dt>
 
         </div>
          <%
@@ -147,62 +152,52 @@
 
     <!--网址收藏-->
     <div id="myCollection_">我的网址收藏<br/>
+        <sql:setDataSource  var="dataSour" driver="org.apache.derby.jdbc.ClientDriver" url="jdbc:derby://localhost/homepage" user="app" password="ok"/>
+        <sql:query var="rs" dataSource="${dataSour}" sql="select id,title,url from tb_site" />
 
+
+
+
+
+
+
+
+
+
+
+
+
+      <%
+          SiteSortDao ssd=new SiteSortDao();
+          List<SiteSort> siteSortLis=ssd.list();
+          for(SiteSort ss:siteSortLis){
+
+
+      %>
         <div class="siteItem">
-            <h3>分类1</h3>
+            <h3><%=ss.getName()%></h3>
             <br>
-            <li><a href="">网站简要名字1</a></li>
-            <li><a href="">网站简要名字2</a></li>
-            <li><a href="">网站简要名字3</a></li>
-            <li><a href="">网站简要名字4</a></li>
-            <li><a href="">网站简要名字5</a></li>
-            <li><a href="">网站简要名字6</a></li>
-            <li><a href="">网站简要名字7</a></li>
+
+            <%
+
+               List<Site> siteList= ss.getSiteList();
+                for(int j=0;j<siteList.size();j++){
+                     Site site=siteList.get(j);
+                     String title=site.getTitle();
+                    String url=site.getUrl();
+            %>
+            <li>
+                <a href="<%=url%>">
+
+                <%=title%></a></li>
+               <%
+                   }
+               %>
+
         </div>
-        <div class="siteItem">
-            <h3>分类2</h3>
-            <br>
-            <li><a href="">网站简要名字1</a></li>
-            <li><a href="">网站简要名字2</a></li>
-            <li><a href="">网站简要名字3</a></li>
-            <li><a href="">网站简要名字4</a></li>
-            <li><a href="">网站简要名字5</a></li>
-            <li><a href="">网站简要名字6</a></li>
-            <li><a href="">网站简要名字7</a></li>
-        </div>
-        <div class="siteItem">
-            <h3>分类3</h3>
-            <br>
-            <li><a href="">网站简要名字1</a></li>
-            <li><a href="">网站简要名字2</a></li>
-            <li><a href="">网站简要名字3</a></li>
-            <li><a href="">网站简要名字4</a></li>
-            <li><a href="">网站简要名字5</a></li>
-            <li><a href="">网站简要名字6</a></li>
-            <li><a href="">网站简要名字7</a></li>
-        </div>
-        <div class="siteItem">
-            <h3>分类4</h3>
-            <br>
-            <li><a href="">网站简要名字1</a></li>
-            <li><a href="">网站简要名字2</a></li>
-            <li><a href="">网站简要名字3</a></li>
-            <li><a href="">网站简要名字4</a></li>
-            <li><a href="">网站简要名字5</a></li>
-            <li><a href="">网站简要名字6</a></li>
-            <li><a href="">网站简要名字7</a></li>
-        </div>
-        <div class="siteItem">
-            <h3>分类5</h3>
-            <br>
-            <li><a href="">网站简要名字1</a></li>
-            <li><a href="">网站简要名字2</a></li>
-            <li><a href="">网站简要名字3</a></li>
-            <li><a href="">网站简要名字4</a></li>
-            <li><a href="">网站简要名字5</a></li>
-            <li><a href="">网站简要名字6</a></li>
-            <li><a href="">网站简要名字7</a></li>
-        </div>
+       <%
+           }
+       %>
 
     </div>
 

@@ -5,6 +5,9 @@ import org.lsx.entity.Photo;
 import org.lsx.utils.Commons;
 import org.lsx.utils.DbUtils;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,19 +39,19 @@ public class AlbumDao extends BaseDao {
           }
 
         public List<Album> list(){
-            conn= DbUtils.getConnection();
+            Connection conn= DbUtils.getConnection();
             List<Album> list=new ArrayList<Album>();
 
             try {
                // conn.setAutoCommit(false);
-                ps=conn.prepareStatement("select id, name,coverPath,createDate,photoList from tb_album") ;
+              PreparedStatement ps=conn.prepareStatement("select id, name,coverPath,createDate,photoList from tb_album") ;
 
-                rs=ps.executeQuery();
+                ResultSet rs=ps.executeQuery();
 
-              if(rs.next()){
+              while(rs.next()){
                    Album a=new Album(rs.getLong("id"),rs.getString("name"),rs.getString("coverPath"),rs.getString("createDate"),new PhotoDao().listByAlbumId(rs.getLong("id")));
                     if(a.getCoverPath()==null){
-                        a.setCoverPath("nopic.png");
+                        a.setCoverPath("nocover.png");
                     }
                   list.add(a);
                }

@@ -154,8 +154,20 @@ nav li a:hover{
     border: 1px solid #CCCCCC;
     display: inline-table;
     width: 150px;
-    height: 150px;
+    height: 130px;
 }
+.photo-item {
+    min-height: 150px;
+    border: 1px dotted #ccc;
+
+}
+
+.photo-item img{
+
+    text-align: center;
+
+}
+
 
 dl {/*相册*/
     position:relative;

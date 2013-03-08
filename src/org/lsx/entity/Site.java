@@ -10,29 +10,45 @@ package org.lsx.entity;
 public class Site {
     private Long id;
     private String title;
-    private String netAddress;
+    private String url;
+    private Long SortId;
 
-    public Long getId() {
-        return id;
+    public Site(Long id, String title, String url, Long sortId) {
+        this.id = id;
+        this.title = title;
+        this.url = url;
+        SortId = sortId;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getNetAddress() {
-        return netAddress;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public void setNetAddress(String netAddress) {
-        this.netAddress = netAddress;
+    public void setSortId(Long sortId) {
+        SortId = sortId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public Long getSortId() {
+        return SortId;
     }
 }
