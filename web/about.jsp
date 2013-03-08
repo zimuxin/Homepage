@@ -1,9 +1,6 @@
 <%-- Created by IntelliJ IDEA. --%>
 <!DOCTYPE HTML>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="org.lsx.dao.ArticleDao" %>
-<%@ page import="org.lsx.entity.Article" %>
-<%@ page import="java.util.List" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -17,7 +14,7 @@
 <script src="resources/script/base.js"></script>
 
 <body>
-<a name="top"/>
+
 <!--头部开始-->
 <%@include file="_header.jsp" %>
 <!--//头部结束-->
@@ -27,26 +24,13 @@
 
 <div id="contentBody" class="contentBody">
 
-    <!--日志-->
-    <%
-        ArticleDao ad = new ArticleDao();
 
-        List<Article> list = null;
+    <!--about-->
+    <div id="about_">关于 <br>
 
-        list = ad.list();
+        这个...
 
-        for (Article a : list) {
-    %>
-    <h2><%=a.getTitle()%>
-    </h2>
-    <article>
-        <div><%=a.getContent()%>
-        </div>
-    </article>
-    <%
-        }
-    %>
-
+    </div>
 
 </div>
 

@@ -1,26 +1,30 @@
-*{
+@charset "utf-8";
+
+* {
+    border: 0px solid red;
     margin: 0px;
+    padding: 0px;
 }
 
-body{
-    background: url("/resources/image/bg11.jpg");
-    background-image: url("/resources/image/bg11.jpg");
+body {
+    /*background: url("/resources/image/bg11.jpg");*/
+    background-image: url("/resources/image/bg-xqx-1.jpg");
+    background-color: #dcdcdc;
     width: 900px;
     margin: 0 auto;
-    font-family: Arial,Helvetica;
+    font-family: Arial, Helvetica;
     font-size: small;
     background-attachment: fixed;
     overflow: auto;
 
 }
 
-div{
-    border: 0px solid #aaa;
-    padding: 3px;
-    margin: 10px;
+/*div{*/
+/*border: 0px solid #aaa;*/
+/*padding: 0px;*/
+/*margin: 0px;*/
 
+/****/
 
-    /****/
-
-}
+/*}*/
 

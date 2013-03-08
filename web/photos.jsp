@@ -3,12 +3,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="org.lsx.dao.AlbumDao" %>
 <%@ page import="org.lsx.entity.Album" %>
-<%@ page import="java.util.List" %>
+<%@ page import="org.lsx.entity.Photo" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>个人主页</title>
+    <title>个人主页-照片</title>
 </head>
 <!--导入的外部样式表-->
 <link type="text/css" rel="stylesheet" href="resources/style/base.css"/>
@@ -17,7 +17,7 @@
 <script src="resources/script/base.js"></script>
 
 <body>
-
+<a name="top"/>
 <!--头部开始-->
 <%@include file="_header.jsp" %>
 <!--//头部结束-->
@@ -29,27 +29,30 @@
 
 
     <!--图片-->
+    <%
 
-    <div id="photo_"><br>
+        String id = request.getParameter("id");
+        AlbumDao albumDao = new AlbumDao();
+        Album album = albumDao.get(new Long(id));
+    %>
+    <div id="photo_"><a href="album.jsp">我的相册</a> >><a href="photos.jsp?id=<%=album.getId()%>"><%=album.getName()%>
+    </a> <span>&nbsp;<a href="">添加图片</a></span> <br>
+
+
         <%
-            AlbumDao albumDao = new AlbumDao();
-            List<Album> albumList = albumDao.list();
-            int len = albumList.size();
-            for (int i = 0; i < len; i++) {
-                Album a = albumList.get(i);
+
+            for (Photo photo : album.getPhotoList()) {
         %>
-        <div class="photo-album">
-            <dl>
-                <dd><img onclick="window.location.href='photos.jsp?id=<%=a.getId()%>'"
-                         src="resources/image/photo/<%=a.getCoverPath()%>"></dd>
-            </dl>
-            <dt style="margin:auto;text-align: center;"><%=a.getName()%>
-            </dt>
+        <div class="photo-item">
+            <img alt="<%=photo.getDescribe()%>" title="<%=photo.getDescribe()%>"
+                 src="resources/image/photo/<%=photo.getFilename()%>">
+            <br>
+            <%--<span style="margin: auto;"><%=photo.getDescribe()%></span>--%>
 
         </div>
+
         <%
             }
-
         %>
 
 

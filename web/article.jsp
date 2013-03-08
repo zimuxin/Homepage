@@ -17,11 +17,11 @@
 <script src="resources/script/base.js"></script>
 
 <body>
-<a name="top"/>
-<!--头部开始-->
-<%@include file="_header.jsp" %>
-<!--//头部结束-->
 
+<!--头部开始-->
+<%@include file="/_header.jsp" %>
+<!--//头部结束-->
+<a name="top"/>
 <!--主体部分-->
 
 
@@ -47,6 +47,8 @@
         }
     %>
 
+
+    h
 
 </div>
 
