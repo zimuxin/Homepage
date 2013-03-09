@@ -33,6 +33,8 @@
     <orderEntry type="library" name="derbyclient" level="project" />
     <orderEntry type="library" name="jstl" level="project" />
     <orderEntry type="library" name="junit:junit-dep:4.10" level="project" />
+    <orderEntry type="library" name="commons-dbutils:commons-dbutils:1.5" level="project" />
+    <orderEntry type="library" name="servlet-api" level="project" />
   </component>
 </module>
 

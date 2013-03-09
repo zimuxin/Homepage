@@ -3,7 +3,7 @@ package org.lsx.dao;
 
 import org.lsx.entity.Article;
 import org.lsx.utils.Commons;
-import org.lsx.utils.DbUtils;
+import org.lsx.utils.DbUtil;
 import org.lsx.utils.EncodeTool;
 
 import java.sql.Connection;
@@ -22,11 +22,12 @@ import java.util.List;
  */
 public class ArticleDao {
     public List<Article> list() {
-        Connection conn = DbUtils.getConnection();
+        Connection conn = DbUtil.getConnection();
         List<Article> list = new ArrayList<Article>();
         try {
-            if(conn==null){
-                System.out.println("conn is  null!!");}
+            if (conn == null) {
+                System.out.println("conn is  null!!");
+            }
             PreparedStatement ps = conn.prepareStatement("select id,title,content,post from tb_article");
             ResultSet rs = ps.executeQuery();
 
@@ -44,7 +45,7 @@ public class ArticleDao {
     }
 
     public Article get(Long id) {
-        Connection conn = DbUtils.getConnection();
+        Connection conn = DbUtil.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement("select id,title,content,post from tb_article");
             ResultSet rs = ps.executeQuery();
@@ -67,7 +68,7 @@ public class ArticleDao {
 
 
     public boolean add(Article a) {
-        Connection conn = DbUtils.getConnection();
+        Connection conn = DbUtil.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement("insert into tb_article(title,content,post) values(?,?,?);");
             ps.setString(1, a.getTitle());
@@ -86,7 +87,7 @@ public class ArticleDao {
     }
 
     public boolean del(Long id) {
-        Connection conn = DbUtils.getConnection();
+        Connection conn = DbUtil.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement("delete tb_article where id=?");
             ps.setLong(1, id);
@@ -104,7 +105,7 @@ public class ArticleDao {
     }
 
     public boolean update(Article a) {
-        Connection conn = DbUtils.getConnection();
+        Connection conn = DbUtil.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement("update tb_article set title=?,content=?,post=? where id=?");
             ps.setString(1, a.getTitle());

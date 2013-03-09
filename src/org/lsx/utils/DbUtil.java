@@ -9,21 +9,22 @@ import java.sql.*;
  * Time: 4:07 PM
  * To change this template use File | Settings | File Templates.
  */
-public class DbUtils {
+public class DbUtil {
 
-    private static String driverClassName="org.apache.derby.jdbc.ClientDriver";
-    private  static String url="jdbc:derby://localhost:1527/homepage;create=true";
-    private  static String username="";
-    private  static String password="";
-    public static Connection getConnection(){
+    private static String driverClassName = "org.apache.derby.jdbc.ClientDriver";
+    private static String url = "jdbc:derby://localhost:1527/homepage;create=true";
+    private static String username = "";
+    private static String password = "";
+
+    public static Connection getConnection() {
         try {
             Class.forName(driverClassName);
-           return DriverManager.getConnection(url);
+            return DriverManager.getConnection(url);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } catch (SQLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } finally{
+        } finally {
 
         }
 
@@ -31,21 +32,23 @@ public class DbUtils {
     }
 
 
-    public static void closeAll(ResultSet rs,PreparedStatement ps,Connection conn){
+    public static void closeAll(ResultSet rs, PreparedStatement ps, Connection conn) {
         try {
-           if(rs!=null){rs.close();}
-            if(ps!=null)ps.close();
-            if(conn!=null)conn.close();
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) ps.close();
+            if (conn != null) conn.close();
         } catch (SQLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }  finally{
+        } finally {
 
         }
     }
 
 
     public static void main(String[] args) {
-       Connection conn= DbUtils.getConnection();
+        Connection conn = DbUtil.getConnection();
         System.out.println(conn);
     }
 }

@@ -2,7 +2,7 @@ package org.lsx.dao;
 
 import org.lsx.entity.Message;
 import org.lsx.utils.Commons;
-import org.lsx.utils.DbUtils;
+import org.lsx.utils.DbUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,20 +24,20 @@ public class MessageDao {
     ResultSet rs = null;
 
     public List<Message> list() {
-        conn = DbUtils.getConnection();
+        conn = DbUtil.getConnection();
         List<Message> list = new ArrayList<Message>();
         try {
             ps = conn.prepareStatement("SELECT id,sender,email,content,(date) FROM tb_message order by id desc");
             rs = ps.executeQuery();
             while (rs.next()) {
-                Message msg = new Message(rs.getLong("id"), rs.getString("sender"), rs.getString("email"), rs.getString("content"),rs.getString("date"));
+                Message msg = new Message(rs.getLong("id"), rs.getString("sender"), rs.getString("email"), rs.getString("content"), rs.getString("date"));
                 list.add(msg);
             }
         } catch (SQLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } finally {
 
-               DbUtils.closeAll(rs,ps,conn);
+            DbUtil.closeAll(rs, ps, conn);
 
 
         }
@@ -45,20 +45,20 @@ public class MessageDao {
     }
 
     public Message get(Long id) {
-        conn = DbUtils.getConnection();
+        conn = DbUtil.getConnection();
         try {
             ps = conn.prepareStatement("SELECT id,sender,email,content FROM tb_message WHERE id=?");
             ps.setLong(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Message msg = new Message(rs.getLong("id"), rs.getString("sender"), rs.getString("email"), rs.getString("content"),rs.getString("date"));
+                Message msg = new Message(rs.getLong("id"), rs.getString("sender"), rs.getString("email"), rs.getString("content"), rs.getString("date"));
                 return msg;
             }
         } catch (SQLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } finally {
 
-            DbUtils.closeAll(rs, ps, conn);
+            DbUtil.closeAll(rs, ps, conn);
 
 
         }
@@ -66,7 +66,7 @@ public class MessageDao {
     }
 
     public boolean del(Long id) {
-        conn = DbUtils.getConnection();
+        conn = DbUtil.getConnection();
         try {
             ps = conn.prepareStatement("DELETE FROM tb_message WHERE id=?");
             ps.setLong(1, id);
@@ -78,7 +78,7 @@ public class MessageDao {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } finally {
 
-            DbUtils.closeAll(null, ps, conn);
+            DbUtil.closeAll(null, ps, conn);
 
 
         }
@@ -88,7 +88,7 @@ public class MessageDao {
     }
 
     public boolean update(Message msg) {
-        conn = DbUtils.getConnection();
+        conn = DbUtil.getConnection();
         try {
             ps = conn.prepareStatement("UPDATE tb_message SET sender=?,email=?,content=?,date=? WHERE id=?");
 
@@ -105,7 +105,7 @@ public class MessageDao {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } finally {
 
-            DbUtils.closeAll(null, ps, conn);
+            DbUtil.closeAll(null, ps, conn);
 
 
         }
@@ -115,16 +115,16 @@ public class MessageDao {
     }
 
     public boolean add(Message msg) {
-        conn = DbUtils.getConnection();
+        conn = DbUtil.getConnection();
         try {
             ps = conn.prepareStatement("INSERT INTO  tb_message(sender,email,content,date) VALUES(?,?,?,?)");
 
             ps.setString(1, msg.getSender());
             ps.setString(2, msg.getEmail());
             ps.setString(3, msg.getContent());
-            ps.setString(4,msg.getDate());
+            ps.setString(4, msg.getDate());
 
-            if (ps.executeUpdate()>0) {
+            if (ps.executeUpdate() > 0) {
                 return true;
             }
 
@@ -132,7 +132,7 @@ public class MessageDao {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } finally {
 
-            DbUtils.closeAll(null, ps, conn);
+            DbUtil.closeAll(null, ps, conn);
         }
 
 
@@ -149,7 +149,7 @@ public class MessageDao {
             } catch (InterruptedException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
-            md.add(new Message(0L, "sender" + i, "sender" + i + "@mail.com", "content" + i,Commons.nowTime()));
+            md.add(new Message(0L, "sender" + i, "sender" + i + "@mail.com", "content" + i, Commons.nowTime()));
         }
 
         Commons.PrintList(md.list());
@@ -162,7 +162,7 @@ public class MessageDao {
         md.del(msg.getId());
         List<Message> list = md.list();
         for (int i = 0; i < list.size(); i++) {
-               //  md.del(list.get(i).getId());
+            //  md.del(list.get(i).getId());
         }
 
     }

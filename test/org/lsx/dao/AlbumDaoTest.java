@@ -1,5 +1,6 @@
+package org.lsx.dao;
+
 import org.junit.Test;
-import org.lsx.dao.AlbumDao;
 import org.lsx.entity.Album;
 
 import java.util.List;
@@ -14,12 +15,12 @@ import java.util.List;
 public class AlbumDaoTest {
 
     @Test
-    public void list(){
-        AlbumDao ad=new AlbumDao();
-        List<Album> list=ad.list()  ;
-           for(int i=0;i<list.size();i++){
-               Album a=list.get(i);
-               System.out.println(a);
-           }
+    public void list() {
+        AlbumDao ad = new AlbumDao();
+        List<Album> list = ad.list();
+        for (int i = 0; i < list.size(); i++) {
+            Album a = list.get(i);
+            System.out.println(a);
+        }
     }
 }

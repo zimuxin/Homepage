@@ -1,6 +1,7 @@
+package org.lsx.dao;
+
 import junit.framework.Assert;
 import org.junit.Test;
-import org.lsx.dao.SiteSortDao;
 import org.lsx.entity.SiteSort;
 
 import java.util.List;
@@ -14,18 +15,18 @@ import java.util.List;
  */
 public class SiteSortDaoTest {
     @Test
-    public void list(){
-     SiteSortDao ssd=   new SiteSortDao();
-        List<SiteSort> lst=ssd.list();
+    public void list() {
+        SiteSortDao ssd = new SiteSortDao();
+        List<SiteSort> lst = ssd.list();
         Assert.assertTrue("网址分类列表为空啊！！是不是没有导入数据啊！？", lst.size() > 0);
-        for(int i=0;i<lst.size();i++){
-            SiteSort ss=lst.get(i);
+        for (int i = 0; i < lst.size(); i++) {
+            SiteSort ss = lst.get(i);
             System.out.println(lst.get(i));
-            for(int j=0;j<ss.getSiteList().size();j++){
+            for (int j = 0; j < ss.getSiteList().size(); j++) {
                 System.out.println(ss.getSiteList().get(j));
                 System.out.println(ss.getSiteList().get(j).getTitle());
             }
         }
         //Commons.PrintList(lst);
-     }
+    }
 }
