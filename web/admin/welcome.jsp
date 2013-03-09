@@ -26,11 +26,11 @@
 
 
     } else {
-        response.setContentType("text/plain");
-        response.getWriter().write("successfully!");
 
+        request.setAttribute("user", user);
+        //  response.setContentType("text/plain");
+        response.getWriter().write(user.getId().toString());
 
-        //request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
 %>

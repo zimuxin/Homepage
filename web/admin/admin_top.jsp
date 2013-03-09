@@ -1,9 +1,13 @@
+<%@ page import="org.lsx.dao.UserDao" %>
+<%@ page import="org.lsx.entity.User" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-    <title><%= title %> - ����ҳ��</title>
+    <title> - 管理页面</title>
     <script language=JavaScript>
         function logout() {
-            if (confirm("��ȷ��Ҫ�˳����������"))
+            if (confirm("您确定要退出控制面板吗？"))
                 top.location = "out.asp";
             return false;
         }
@@ -42,8 +46,19 @@
         <td width="39%" valign="top">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td width="74%" height="38" class="admin_txt">����Ա��<b><%=session("admin_name")%></b> ����,��л��½ʹ�ã�</td>
-                    <td width="22%"><a href="#" target="_self" onClick="logout();"><img src="images/out.gif" alt="��ȫ�˳�"
+                    <td width="74%" height="38" class="admin_txt">管理员：<b><%
+
+                        UserDao ud = new UserDao();
+                        String userId = (String) application.getAttribute("userId");
+                        session.setAttribute("userId", userId);
+                        application.removeAttribute("userId");
+
+                        User user = ud.get(Long.valueOf(userId));
+                    %>
+                        <%=user.getNickName()%>
+                    </b> 您好,感谢登陆使用！
+                    </td>
+                    <td width="22%"><a href="#" target="_self" onClick="logout();"><img src="images/out.gif" alt="安全退出"
                                                                                         width="46" height="20"
                                                                                         border="0"></a></td>
                     <td width="4%">&nbsp;</td>

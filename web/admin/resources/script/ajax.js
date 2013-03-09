@@ -10,8 +10,11 @@ function ajaxFunction(name, password) {
         if (xmlhttp.readyState == 4) {
             var responseText = xmlhttp.responseText;
 
-            if (responseText.trim() == "successfully!") {
-                window.location.href = "index.jsp";
+            if (responseText.trim().concat("id=")) {
+                $('userId').value = responseText.trim();
+                //alert($('userId').value);
+                $('indexForm').submit();
+                //  window.location.href = "index.jsp?"+responseText.trim();
                 return;
             }
             $("ajax-msg").innerHTML = responseText;
