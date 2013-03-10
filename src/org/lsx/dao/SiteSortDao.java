@@ -1,5 +1,6 @@
 package org.lsx.dao;
 
+import org.apache.commons.dbutils.QueryRunner;
 import org.lsx.entity.SiteSort;
 import org.lsx.utils.DbUtil;
 
@@ -32,6 +33,20 @@ public class SiteSortDao extends BaseDao {
         } finally {
         }
         return list;
+    }
+
+    public boolean add(SiteSort ss) {
+        Connection conn = DbUtil.getConnection();
+        QueryRunner qr = new QueryRunner();
+        try {
+            int i = qr.update(conn, "insert into tb_sitesort(name) values(?)", ss.getName());
+            if (i > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        return false;
     }
 
 
