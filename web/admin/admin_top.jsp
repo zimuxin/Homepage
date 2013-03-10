@@ -42,19 +42,26 @@
 <body leftmargin="0" topmargin="0">
 <table width="100%" height="64" border="0" cellpadding="0" cellspacing="0" class="admin_topbg">
     <tr>
-        <td width="61%" height="64"><img src="images/logo.gif" width="262" height="64"></td>
+        <td width="61%" height="64" style="vertical-align: top;margin-top: 4px">
+            <span style="color:white;margin-left: 6px;font-weight: bold"><a href="/index.jsp">返回前台主页</a></span>
+            <%--<img src="images/logo.gif" width="262" height="64">--%></td>
         <td width="39%" valign="top">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td width="74%" height="38" class="admin_txt">管理员：<b><%
 
                         UserDao ud = new UserDao();
-                        String userId = (String) application.getAttribute("userId");
-                        session.setAttribute("userId", userId);
-                        application.removeAttribute("userId");
+                        User user = (User) application.getAttribute("user");
+                        session.setAttribute("user", user);
 
-                        User user = ud.get(Long.valueOf(userId));
+                        if (user == null) {
+                            out.println("null");
+                            response.sendRedirect("login.html");
+                        }
+
+
                     %>
+                        <%--<%=user.getNickName()%>--%>
                         <%=user.getNickName()%>
                     </b> 您好,感谢登陆使用！
                     </td>

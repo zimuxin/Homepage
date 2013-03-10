@@ -1,6 +1,9 @@
 <%@page pageEncoding="utf-8" language="java" %>
 <footer>
-    <p style="text-align: center;color:#fff">----页脚----- </p>
+    <a href="">友情链接1</a><a href="">友情链接2</a><a href="">友情链接3</a><a href="">友情链接4</a><a href="">友情链接5</a><a
+        href="">友情链接6</a><a href="">友情链接7</a><a href="">友情链接8</a><a href="">友情链接9</a>
+
+    <p style="text-align: center;color:#fff"><a href="admin/login.html">登陆后台</a></p>
     <br/>
     切换背景图片
     <select id="bgSelector" onchange="selectBg(this.value)">

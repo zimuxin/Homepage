@@ -302,3 +302,10 @@ dd img {
 #toTop a {
     text-decoration: none;
 }
+
+footer a {
+    color: #333333;
+    text-decoration: none;
+    margin-left: 10px;
+    line-height: 20px;
+}

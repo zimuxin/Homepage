@@ -1,4 +1,3 @@
-<%@ page import="org.lsx.dao.UserDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,8 +6,7 @@
 </head>
 <input name="userId" type="hidden" id="userId" value="<%
 String userId=request.getParameter("userId");
-session.setAttribute("user",new UserDao().get(Long.valueOf(userId)));
-application.setAttribute("userId",userId);
+
 out.print(userId);
 %>"/>
 <frameset rows="64,*" frameborder="NO" border="0" framespacing="0">

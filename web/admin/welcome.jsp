@@ -29,6 +29,7 @@
 
         request.setAttribute("user", user);
         //  response.setContentType("text/plain");
+        application.setAttribute("user", user);
         response.getWriter().write(user.getId().toString());
 
     }

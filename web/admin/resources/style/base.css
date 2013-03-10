@@ -1,0 +1,27 @@
+* {
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+input {
+    margin-bottom: 2px;;
+}
+
+table {
+
+    font-size: 12px;;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid #aaaaaa;
+}
+
+table td {
+    height: 20px;;
+    border-bottom: 1px dashed #a9a9a9;
+    border-right: 1px solid #aaaaaa;
+    margin: 0px;
+    padding: 0px;
+
+}

@@ -70,11 +70,11 @@ public class ArticleDao {
     public boolean add(Article a) {
         Connection conn = DbUtil.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("insert into tb_article(title,content,post) values(?,?,?);");
+            PreparedStatement ps = conn.prepareStatement("insert into tb_article(title,content,post) values(?,?,?)");
             ps.setString(1, a.getTitle());
             ps.setString(2, EncodeTool.encode(a.getContent()));
             ps.setString(3, a.getPostDate());
-            if (ps.execute()) {
+            if (ps.executeUpdate() > 0) {
                 return true;
             }
             ps.close();
@@ -89,7 +89,7 @@ public class ArticleDao {
     public boolean del(Long id) {
         Connection conn = DbUtil.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("delete tb_article where id=?");
+            PreparedStatement ps = conn.prepareStatement("delete from tb_article where id=?");
             ps.setLong(1, id);
             if (ps.execute()) {
                 return true;

@@ -44,7 +44,7 @@
 
         %>
         <div class="siteItem">
-            <a href="http://www.w3school.com.cn/" target="_blank">Visit W3School!</a>
+
 
             <h3><%=ss.getName()%>
             </h3>

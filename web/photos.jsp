@@ -36,7 +36,7 @@
         Album album = albumDao.get(new Long(id));
     %>
     <div id="photo_"><a href="album.jsp">我的相册</a> >><a href="photos.jsp?id=<%=album.getId()%>"><%=album.getName()%>
-    </a> <span>&nbsp;<a href="">添加图片</a></span> <br>
+    </a> <span>&nbsp;<a href=""></a></span> <br>
 
 
         <%

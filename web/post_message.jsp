@@ -1,5 +1,5 @@
-<%@ page import="org.lsx.entity.Message" %>
 <%@ page import="org.lsx.dao.MessageDao" %>
+<%@ page import="org.lsx.entity.Message" %>
 <%@ page import="org.lsx.utils.Commons" %>
 <%--
   Created by IntelliJ IDEA.
@@ -22,9 +22,11 @@
     if (md.add(message)) {
         System.out.println("request = [" + request + "], response = [" + response + "]");
         System.out.println("successfully");
-        out.print("发表留言成功！");
-        out.flush();
-        response.sendRedirect("index.jsp");
+        //     out.print("发表留言成功！");
+        // out.flush();
+        request.getRequestDispatcher("message.jsp").forward(request, response);
+        out.print("发表成功！");
+        //    response.sendRedirect("message.jsp");
 
     }
 %>
