@@ -43,7 +43,8 @@
 <table width="100%" height="64" border="0" cellpadding="0" cellspacing="0" class="admin_topbg">
     <tr>
         <td width="61%" height="64" style="vertical-align: top;margin-top: 4px">
-            <span style="color:white;margin-left: 6px;font-weight: bold"><a href="/index.jsp">返回前台主页</a></span>
+            <a href="/index.jsp" style="color:#000" target="_parent"> <span
+                    style="color:white;margin-left: 6px;font-weight: bold">返回前台主页</span></a>
             <%--<img src="images/logo.gif" width="262" height="64">--%></td>
         <td width="39%" valign="top">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -53,16 +54,24 @@
                         UserDao ud = new UserDao();
                         User user = (User) application.getAttribute("user");
                         session.setAttribute("user", user);
-
+                        System.out.println("当前登录用户的状态:" + user);
                         if (user == null) {
-                            out.println("null");
-                            response.sendRedirect("login.html");
-                        }
+                            out.println("null,我要跳转了！");
+                            out.println("<script type=\"text/javascript\">");
+                            out.println("self.parent.location.href='/admin/login.html'");
+                            out.println("</script>");
+                            out.flush();
+                            //response.sendRedirect("login.html");
+                        } else {
 
 
                     %>
                         <%--<%=user.getNickName()%>--%>
+
                         <%=user.getNickName()%>
+                        <%
+                            }
+                        %>
                     </b> 您好,感谢登陆使用！
                     </td>
                     <td width="22%"><a href="#" target="_self" onClick="logout();"><img src="images/out.gif" alt="安全退出"

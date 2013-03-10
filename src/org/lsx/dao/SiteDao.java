@@ -39,5 +39,25 @@ public class SiteDao extends BaseDao {
         return list;
     }
 
+    public boolean add(Site site) {
+        Connection conn = DbUtil.getConnection();
+
+        try {
+            PreparedStatement ps = conn.prepareStatement("insert into tb_site(title,url,sortId) values(?,?,?)");
+
+            ps.setString(1, site.getTitle());
+            ps.setString(2, site.getUrl());
+            ps.setLong(3, site.getSortId());
+            if (ps.executeUpdate() > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } finally {
+            DbUtil.closeAll(rs, ps, conn);
+        }
+        return false;
+    }
+
 
 }

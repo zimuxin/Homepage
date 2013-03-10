@@ -1,8 +1,31 @@
+<%@ page import="org.lsx.utils.DbUtil" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
 <%@page pageEncoding="utf-8" language="java" %>
 <footer>
-    <a href="">友情链接1</a><a href="">友情链接2</a><a href="">友情链接3</a><a href="">友情链接4</a><a href="">友情链接5</a><a
-        href="">友情链接6</a><a href="">友情链接7</a><a href="">友情链接8</a><a href="">友情链接9</a>
+    <%
 
+        Connection conn = DbUtil.getConnection();
+        PreparedStatement ps = conn.prepareStatement("select id,title,url from tb_friendLink");
+        ResultSet rs = ps.executeQuery();
+        String title = "";
+        String url = "";
+        while (rs.next()) {
+            title = rs.getString("title");
+            url = rs.getString("url");
+
+
+    %>
+
+    <a href="<%=url%>"><%=title%>
+    </a>
+    <%
+        }
+        rs.close();
+        ps.close();
+        conn.close();
+    %>
     <p style="text-align: center;color:#fff"><a href="admin/login.html">登陆后台</a></p>
     <br/>
     切换背景图片
