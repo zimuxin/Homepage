@@ -40,7 +40,7 @@
         %>
         <div class="photo-album">
             <dl>
-                <dd><img onclick="window.location.href='photos.jsp?id=<%=a.getId()%>'"
+                <dd><img alt="无封面"  onclick="window.location.href='photos.jsp?id=<%=a.getId()%>'"
                          src="resources/image/photo/<%=a.getCoverPath()%>"></dd>
             </dl>
             <dt style="margin:auto;text-align: center;"><%=a.getName()%>
