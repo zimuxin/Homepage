@@ -45,7 +45,7 @@
         %>
         <div class="photo-item">
             <img alt="<%=photo.getDescribe()%>" title="<%=photo.getDescribe()%>"
-                 src="resources/image/photo/<%=photo.getAlbumId()%>/<%=photo.getFilename()%>">
+                 src="resources/image/photo/<%=photo.getFilename()%>">
             <br>
             <%--<span style="margin: auto;"><%=photo.getDescribe()%></span>--%>
 
