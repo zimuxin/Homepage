@@ -56,5 +56,5 @@ padding: 0px;
 <!--返回顶部的按钮-->
 <div id="toTop" class="toTop">
 
-    <a href="#"><img src="/resources/image/top2.png"/></a>
+    <a href="#"><img src="resources/image/top2.png"/></a>
 </div>

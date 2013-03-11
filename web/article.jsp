@@ -6,8 +6,15 @@
 <%@ page import="java.util.List" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+
+
 <html>
 <head>
+    <base href="<%=basePath %>">
     <title>个人主页</title>
 </head>
 <!--导入的外部样式表-->
@@ -19,7 +26,7 @@
 <body>
 
 <!--头部开始-->
-<%@include file="/_header.jsp" %>
+<%@include file="_header.jsp" %>
 <!--//头部结束-->
 <a name="top"/>
 <!--主体部分-->

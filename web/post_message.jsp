@@ -31,9 +31,15 @@
     }
 %>
 
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+
 
 <html>
 <head>
+    <base href="<%=basePath %>">
     <title>处理发表留言的jsp页面</title>
 </head>
 <body>

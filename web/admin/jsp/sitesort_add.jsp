@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>后台管理-添加网址分类</title>
+    <link type="text/css" rel="stylesheet" href="../resources/style/base.css"/>
 </head>
 <body>
 

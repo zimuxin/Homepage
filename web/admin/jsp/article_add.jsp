@@ -28,7 +28,7 @@
 <html>
 <head>
     <title>系统后台管理-发表文章</title>
-    <link type="text/css" rel="stylesheet" href="/admin/resources/style/base.css"/>
+    <link type="text/css" rel="stylesheet" href="../resources/style/base.css"/>
 </head>
 <body style="margin-left: 20px">
 <br>发表文章 <br> <br>

@@ -14,6 +14,8 @@
 <html>
 <head>
     <title>后台管理-添加网址收藏</title>
+    <link type="text/css" rel="stylesheet" href="../resources/style/base.css"/>
+    <link type="text/css" rel="stylesheet" href="../resources/button.css"/>
 </head>
 <body>
 <form action="sites_add.jsp" method="post">
@@ -31,9 +33,15 @@
         <%
             }
         %>
-    </select> 如果没有需要的，请在左侧选在[添加网址分类]添加一个继续。
-    <br> 网址：<input type="text" name="title"><br>url： <input type="text" name="url"><input
-        type="submit" value="添加"></form>
+    </select>
+    <br> 网站名字：<input style="border: 1px solid #cc9900" type="text" name="title"><br>
+    <span style="text-align: right;width:140px">网址(URL)： </span> <input style="border: 1px solid #cc9900" type="text"
+                                                                        name="url">
+    <br>
+    <input class="btn5" type="submit" value="添加">
+
+
+</form>
 
 </body>
 

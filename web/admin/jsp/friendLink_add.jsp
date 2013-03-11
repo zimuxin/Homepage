@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>后台管理-添加友情链接</title>
+    <link type="text/css" rel="stylesheet" href="../resources/style/base.css"/>
 </head>
 <body>
 <form action="friendLink_add.jsp">
@@ -28,7 +29,7 @@
     String url = request.getParameter("url");
     if (null != title && null != url) {
         Connection conn = DbUtil.getConnection();
-        PreparedStatement ps = conn.prepareStatement("insert into tb_friendlink(title,url) values(?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO tb_friendlink(title,url) VALUES(?,?)");
         ps.setString(1, title);
         ps.setString(2, url);
         int i = ps.executeUpdate();

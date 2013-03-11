@@ -34,6 +34,7 @@
 <html>
 <head>
     <title>后台管理-上传图片</title>
+    <link type="text/css" rel="stylesheet" href="../resources/style/base.css"/>
 </head>
 <body>
 <form action="/fileUpload" method="post" enctype="multipart/form-data">
@@ -61,9 +62,10 @@
 
 <%
 
-    String msg=(String)request.getAttribute("msg") ;
-    if(null!=msg) {
-    out.print(msg);}
+    String msg = (String) request.getAttribute("msg");
+    if (null != msg) {
+        out.print(msg);
+    }
 %>
 </body>
 </html>

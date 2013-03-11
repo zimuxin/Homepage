@@ -6,13 +6,21 @@
 <%@ page import="java.util.List" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+
+
 <html>
 <head>
+    <base href="<%=basePath %>">
     <title>个人主页</title>
+
 </head>
 <!--导入的外部样式表-->
-<link type="text/css" rel="stylesheet" href="resources/style/base.css"/>
-<link type="text/css" rel="stylesheet" href="resources/style/index.css"/>
+<link type="text/css" rel="stylesheet" href="<%=basePath%>resources/style/base.css"/>
+<link type="text/css" rel="stylesheet" href="<%=basePath%>/resources/style/index.css"/>
 <!--导入的JavaScript脚本-->
 <script src="resources/script/base.js"></script>
 
@@ -26,7 +34,7 @@
 
 
 <div id="contentBody" class="contentBody">
-
+    <%--<img src="resources/image/bg-xqx-1.jpg">--%>
     <!--日志-->
     <%
         ArticleDao ad = new ArticleDao();

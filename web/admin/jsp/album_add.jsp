@@ -31,6 +31,7 @@
 <html>
 <head>
     <title>后台管理-新建相册</title>
+    <link type="text/css" rel="stylesheet" href="../resources/style/base.css"/>
     <script type="text/javascript">
         function $() {
             return document.getElementById(arguments[0]);

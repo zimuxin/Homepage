@@ -1,6 +1,6 @@
 @charset "utf-8";
 nav {
-    background: url(/resources/image/top-bg.jpg);
+    background: url(../image/top-bg.jpg);
     background-repeat: no-repeat;
 
     /*background-color: #808080;*/
@@ -14,7 +14,7 @@ nav {
 }
 
 #nav {
-    background: url(/resources/image/top-bg.jpg);
+    background: url(../image/top-bg.jpg);
     background-repeat: no-repeat;
     padding-left: 30px;
     /*background-color: #808080;*/
@@ -54,16 +54,16 @@ nav li {
 
 #nav-left {
 
-    background-image: url(/resources/image/nav-tag-left.png);
+    background-image: url(../image/nav-tag-left.png);
 }
 
 #nav-right {
 
-    background-image: url(/resources/image/nav-tag-right.png);
+    background-image: url(../image/nav-tag-right.png);
 }
 
 nav li a {
-    background-image: url(/resources/image/nav-tag.jpg);
+    background-image: url(../image/nav-tag.jpg);
     text-decoration: none;
     color: #808080;
     display: block;
@@ -77,7 +77,7 @@ nav li a {
 }
 
 #nav li a {
-    background-image: url(/resources/image/nav-tag.jpg);
+    background-image: url(../image/nav-tag.jpg);
     text-decoration: none;
     color: #808080;
     display: block;

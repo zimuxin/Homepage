@@ -6,8 +6,15 @@
 <%@ page import="org.lsx.entity.Photo" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+
+
 <html>
 <head>
+    <base href="<%=basePath %>">
     <title>个人主页-照片</title>
 </head>
 <!--导入的外部样式表-->

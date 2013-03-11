@@ -8,7 +8,7 @@
 
 body {
     /*background: url("/resources/image/bg11.jpg");*/
-    background-image: url("/resources/image/bg-xqx-1.jpg");
+    background-image: url("../image/bg-xqx-1.jpg");
     background-color: #dcdcdc;
     width: 900px;
     margin: 0 auto;

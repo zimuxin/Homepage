@@ -12,7 +12,7 @@
 <html>
 <head>
     <title>后台管理-删除帖子</title>
-    <link type="text/css" rel="stylesheet" href="/admin/resources/style/base.css"/>
+    <link type="text/css" rel="stylesheet" href="../resources/style/base.css"/>
 
 </head>
 <body>
