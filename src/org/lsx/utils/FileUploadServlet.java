@@ -104,15 +104,29 @@ public class FileUploadServlet extends HttpServlet {
                     photo.setFilename(filename);
                     photo.setDescribe(describe);
                     photo.setAlbumId(Long.valueOf(albumId));
-                    pd.add(photo);
+                    boolean r = pd.add(photo);
+                    response.setCharacterEncoding("utf-8");
+                    PrintWriter out = response.getWriter();
+                    if (r) {
+                        request.setAttribute("msg","上传成功");
+                        //response.sendRedirect("/admin/jsp/photo_add.jsp?");
+                        out.print("<script>alert('ok,上传成功！');window.location.href='/admin/jsp/photo_add.jsp'</script>");
+                    } else {
+                        request.setAttribute("msg","上传失败");
+                       // response.sendRedirect("/admin/jsp/photo_add.jsp");
+                        out.print("<script>alert('上传失败');window.location.href='/admin/jsp/photo_add.jsp'</script>");
+                    }
+                    out.flush();out.close();
 
                     //System.out.println(filename);
                     ServletContext context = getServletContext();
 
                     // 上传的文件存放路径为...\\WebRoot\\upload\\filename
                     String dir = context.getRealPath("/resources/image/photo");
-                    System.out.println("上传的文件位置:" + dir + filename);
+                    System.out.println("上传的文件位置:" + dir+"/" + filename);
                     File file = new File(dir, filename);
+                    System.out.println(file.getAbsoluteFile().toString());
+
                     file.createNewFile();
 
                     // 获得流，读取数据写入文件
@@ -134,6 +148,8 @@ public class FileUploadServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
     }
 
 }

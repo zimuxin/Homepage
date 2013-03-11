@@ -52,10 +52,18 @@
             }
         %>
     </select>
-    <br>
     描述：<input type="text" name="describe"><br>
     <input type="file" name="filename"><br>
     <input type="submit" value="开始上传"><br>
+
+
 </form>
+
+<%
+
+    String msg=(String)request.getAttribute("msg") ;
+    if(null!=msg) {
+    out.print(msg);}
+%>
 </body>
 </html>
