@@ -74,6 +74,12 @@
                         %>
                     </b> 您好,感谢登陆使用！
                     </td>
+
+                    <script type="text/javascript">
+                        function logout() {
+                            window.location.href = "/logout";
+                        }
+                    </script>
                     <td width="22%"><a href="#" target="_self" onClick="logout();"><img src="images/out.gif" alt="安全退出"
                                                                                         width="46" height="20"
                                                                                         border="0"></a></td>

@@ -1,9 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <title>管理页面</title>
+    <title>绠＄悊椤甸潰</title>
 
     <script src="js/prototype.lite.js" type="text/javascript"></script>
     <script src="js/moo.fx.js" type="text/javascript"></script>
@@ -156,7 +157,7 @@
     <tr>
         <td width="182" valign="top">
             <div id="container">
-                <h1 class="type"><a href="javascript:void(0)">网站常规管理</a></h1>
+                <h1 class="type"><a href="javascript:void(0)">缃戠珯甯歌绠＄悊</a></h1>
 
                 <div class="content">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -165,18 +166,18 @@
                         </tr>
                     </table>
                     <ul class="MM">
-                        <li><a href="jsp/article_add.jsp" target="main">发表文章</a></li>
-                        <li><a href="jsp/article_del.jsp" target="main">删除文章</a></li>
-                        <li><a href="jsp/album_add.jsp" target="main">新建相册</a></li>
-                        <li><a href="jsp/photo_add.jsp" target="main">上传照片</a></li>
-                        <li><a href="jsp/friendLink_add.jsp" target="main">添加友情链接</a></li>
-                        <li><a href="jsp/sites_add.jsp" target="main">添加网址收藏</a></li>
-                        <li><a href="jsp/sitesort_add.jsp" target="main">网址分类</a></li>
-                        <li><a href="#" target="main">增加链接</a></li>
-                        <li><a href="#" target="main">管理链接</a></li>
+                        <li><a href="jsp/article_add.jsp" target="main">鍙戣〃鏂囩珷</a></li>
+                        <li><a href="jsp/article_del.jsp" target="main">鍒犻櫎鏂囩珷</a></li>
+                        <li><a href="jsp/album_add.jsp" target="main">鏂板缓鐩稿唽</a></li>
+                        <li><a href="jsp/photo_add.jsp" target="main">涓婁紶鐓х墖</a></li>
+                        <li><a href="jsp/friendLink_add.jsp" target="main">娣诲姞鍙嬫儏閾炬帴</a></li>
+                        <li><a href="jsp/sitesort_add.jsp" target="main">娣诲姞缃戝潃鍒嗙被</a></li>
+                        <li><a href="jsp/sites_add.jsp" target="main">娣诲姞缃戝潃鏀惰棌</a></li>
+
                     </ul>
                 </div>
-                <h1 class="type"><a href="javascript:void(0)">栏目分类管理</a></h1>
+
+                <h1 class="type"><a href="javascript:void(0)">鍏跺畠鍙傛暟绠＄悊</a></h1>
 
                 <div class="content">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -185,74 +186,11 @@
                         </tr>
                     </table>
                     <ul class="MM">
-                        <li><a href="#" target="main">信息分类</a></li>
-                        <li><a href="#" target="main">信息类型</a></li>
-                        <li><a href="#" target="main">资讯分类</a></li>
-                        <li><a href="#" target="main">地区设置</a></li>
-                        <li><a target="main" href="#">市场联盟</a></li>
-                        <li><a href="#" target="main">商家类型</a></li>
-                        <li><a href="#" target="main">商家星级</a></li>
-                        <li><a href="#" target="main">商品分类</a></li>
-                        <li><a href="#" target="main">商品类型</a></li>
+                        <li><a href="server_info.jsp" target="main">鏈嶅姟鍣ㄤ俊鎭�</a></li>
+
+
                     </ul>
                 </div>
-                <h1 class="type"><a href="javascript:void(0)">栏目内容管理</a></h1>
-
-                <div class="content">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                            <td><img src="images/menu_topline.gif" width="182" height="5"/></td>
-                        </tr>
-                    </table>
-                    <ul class="MM">
-                        <li><a href="#" target="main">信息管理</a></li>
-                        <li><a href="#" target="main">张贴管理</a></li>
-                        <li><a href="#" target="main">增加商家</a></li>
-                        <li><a href="#" target="main">管理商家</a></li>
-                        <li><a href="#" target="main">发布资讯</a></li>
-                        <li><a href="#" target="main">资讯管理</a></li>
-                        <li><a href="#" target="main">市场联盟</a></li>
-                        <li><a href="#" target="main">名片管理</a></li>
-                        <li><a href="#" target="main">商城管理</a></li>
-                        <li><a href="#" target="main">商品管理</a></li>
-                        <li><a href="#" target="main">商城留言</a></li>
-                        <li><a href="#" target="main">商城公告</a></li>
-                    </ul>
-                </div>
-                <h1 class="type"><a href="javascript:void(0)">注册用户管理</a></h1>
-
-                <div class="content">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                            <td><img src="images/menu_topline.gif" width="182" height="5"/></td>
-                        </tr>
-                    </table>
-                    <ul class="MM">
-                        <li><a href="#" target="main">会员管理</a></li>
-                        <li><a href="#" target="main">留言管理</a></li>
-                        <li><a href="#" target="main">回复管理</a></li>
-                        <li><a href="#" target="main">订单管理</a></li>
-                        <li><a href="#" target="main">举报管理</a></li>
-                        <li><a href="#" target="main">评论管理</a></li>
-                    </ul>
-                </div>
-            </div>
-            <h1 class="type"><a href="javascript:void(0)">其它参数管理</a></h1>
-
-            <div class="content">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td><img src="images/menu_topline.gif" width="182" height="5"/></td>
-                    </tr>
-                </table>
-                <ul class="MM">
-                    <li><a href="#" target="main">管理设置</a></li>
-                    <li><a href="#" target="main">主机状态</a></li>
-                    <li><a href="#" target="main">攻击状态</a></li>
-                    <li><a href="#" target="main">登陆记录</a></li>
-                    <li><a href="#" target="main">运行状态</a></li>
-                </ul>
-            </div>
             </div>
             <script type="text/javascript">
                 var contents = document.getElementsByClassName('content');

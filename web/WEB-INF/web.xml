@@ -20,4 +20,13 @@
         <servlet-name>fileUpload</servlet-name>
         <url-pattern>/fileUpload</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>org.lsx.utils.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -13,9 +13,9 @@ out.print(userId);
     <frame src="admin_top.jsp" noresize="noresize" frameborder="NO" name="topFrame" scrolling="no" marginwidth="0"
            marginheight="0" target="main"/>
     <frameset cols="200,*" rows="560,*" id="frame">
-        <frame src="left.html" name="leftFrame" noresize="noresize" marginwidth="0" marginheight="0" frameborder="0"
+        <frame src="left.jsp" name="leftFrame" noresize="noresize" marginwidth="0" marginheight="0" frameborder="0"
                scrolling="no" target="main"/>
-        <frame src="right.html" name="main" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"
+        <frame src="right.jsp" name="main" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"
                target="_self"/>
     </frameset>
     <noframes>
