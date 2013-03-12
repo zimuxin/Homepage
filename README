@@ -2,3 +2,4 @@ This file was created by IntelliJ IDEA 12.0.4 for binding GitHub repository
 使用的derby数据库。数据库名字叫homepage
 数据脚本名字叫：tables.sql在src目录下。
 使用jdk1.7开发，运行在tomcat7.
+patch..
