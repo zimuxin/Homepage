@@ -22,54 +22,9 @@ public class FileUploadServlet extends HttpServlet {
         this.doPost(request, response);
     }
 
-    public void doAdd(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String str = request.getParameter("filename");
-        if (null != str && !str.equals("")) {
-            String albumId = request.getParameter("album");
-            String describe = request.getParameter("describe");
-            String filename = request.getParameter("filename");
-            PhotoDao pd = new PhotoDao();
-            Photo photo = new Photo();
-            photo.setFilename(filename);
-            photo.setDescribe(describe);
-            photo.setAlbumId(Long.valueOf(albumId));
-            PrintWriter out = response.getWriter();
-            if (pd.add(photo)) {
-
-                out.println("成功");
-
-            } else {
-                out.println("失败");
-            }
-
-        }
-    }
-
     @SuppressWarnings("unchecked")
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        //
-        String str = request.getParameter("filename");
-        if (null != str && !str.equals("")) {
-            String albumId = request.getParameter("album");
-            String describe = request.getParameter("describe");
-            String filename = request.getParameter("filename");
-            PhotoDao pd = new PhotoDao();
-            Photo photo = new Photo();
-            photo.setFilename(filename);
-            photo.setDescribe(describe);
-            photo.setAlbumId(Long.valueOf(albumId));
-            PrintWriter out = response.getWriter();
-            boolean i = pd.add(photo);
-            if (i) {
-
-                out.println("成功");
-
-            } else {
-                out.println("失败");
-            }
-
-        }
 
 
         // 采用apache工具包进行文件上传操作
@@ -108,22 +63,23 @@ public class FileUploadServlet extends HttpServlet {
                     response.setCharacterEncoding("utf-8");
                     PrintWriter out = response.getWriter();
                     if (r) {
-                        request.setAttribute("msg","上传成功");
+                        request.setAttribute("msg", "上传成功");
                         //response.sendRedirect("/admin/jsp/photo_add.jsp?");
                         out.print("<script>alert('ok,上传成功！');window.location.href='/admin/jsp/photo_add.jsp'</script>");
                     } else {
-                        request.setAttribute("msg","上传失败");
-                       // response.sendRedirect("/admin/jsp/photo_add.jsp");
+                        request.setAttribute("msg", "上传失败");
+                        // response.sendRedirect("/admin/jsp/photo_add.jsp");
                         out.print("<script>alert('上传失败');window.location.href='/admin/jsp/photo_add.jsp'</script>");
                     }
-                    out.flush();out.close();
+                    out.flush();
+                    out.close();
 
                     //System.out.println(filename);
                     ServletContext context = getServletContext();
 
                     // 上传的文件存放路径为...\\WebRoot\\upload\\filename
                     String dir = context.getRealPath("/resources/image/photo");
-                    System.out.println("上传的文件位置:" + dir+"/" + filename);
+                    System.out.println("上传的文件位置:" + dir + "/" + filename);
                     File file = new File(dir, filename);
                     System.out.println(file.getAbsoluteFile().toString());
 
